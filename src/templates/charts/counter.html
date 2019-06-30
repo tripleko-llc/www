@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h2>Counters</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="counter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="counter-margin">
+                                <p class="counter-count">1750</p>
+                                <p class="counter-text"> <span class="fa fa-database"></span> Data</p> 
+                            </div>
+                        </div>
+            
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="counter-margin">
+                                <p class="counter-count">129</p>
+                                <p class="counter-text"><span class="fa fa-users"></span> Users</p>
+                            </div>
+                        </div>
+            
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="counter-margin">
+                                <p class="counter-count">21413</p>
+                                <p class="counter-text"><span class="fa fa-code"></span> Code</p>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+$('.counter-count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 10000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+});
+</script>

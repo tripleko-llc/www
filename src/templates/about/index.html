@@ -1,0 +1,14 @@
+<hr>
+{% for sec in about %}
+    <div class="container">
+        <div class="col text-center">
+            <h2>{{ sec["title"] }}</h2>
+        </div>
+        <div class="row expo my-2">
+            <div class="col text-left">
+                {{ sec["body"] }}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<hr>

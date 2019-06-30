@@ -1,0 +1,29 @@
+{
+    "project": "www",
+    "runtime": "python3.6",
+    "stage": {
+        "dev": {
+            "source": "src",
+            "bucket": "s3",
+            "domain": "www.tripleko.io",
+            "cert": "*.tripleko.io"
+        }
+    },
+    "function": {
+        "error404": {
+            "handler": "errors.error404",
+            "method": "get",
+            "path": "/{path}"
+        },
+        "root": {
+            "handler": "root.root",
+            "method": "get",
+            "path": "/"
+        },
+        "submit": {
+            "handler": "root.root",
+            "method": "post",
+            "path": "/"
+        }
+    }
+}

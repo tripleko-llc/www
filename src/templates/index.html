@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'header.html' %}
+    </head>
+    <body>
+        {% include 'nav.html' %}
+
+        {% if modal %}
+            {% include 'modal.html' %}
+        {% endif %}
+
+        {% for section in sections %}
+            {% include 'section.html' %}
+            {% include section.lower() + '/index.html' %}
+        {% endfor %}
+
+        {% include 'footer.html' %}
+    </body>
+</html>

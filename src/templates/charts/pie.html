@@ -1,0 +1,119 @@
+
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h2>Pies</h2>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-md-4 py-1">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="chDonut1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 py-1">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="chDonut2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 py-1">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="chDonut3"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+/* 3 donut charts */
+var donutOptions = {
+  cutoutPercentage: 50,
+  legend: {
+      position:'bottom',
+      padding:0,
+      labels:
+        {
+            pointStyle:'circle',
+            usePointStyle:true,
+            fontSize: 10
+        }
+  },
+  maintainAspectRatio: false
+};
+
+// donut 1
+var chDonutData1 = {
+    labels: ['Python', 'C', 'Go'],
+    datasets: [
+      {
+        backgroundColor: colors.slice(0,3),
+        borderWidth: 0,
+        data: [74, 11, 40]
+      }
+    ]
+};
+
+
+var chDonut1 = document.getElementById("chDonut1");
+
+
+
+// donut 2
+var chDonutData2 = {
+    labels: ['bash', 'vim', 'git'],
+    datasets: [
+      {
+        backgroundColor: colors.slice(0,3),
+        borderWidth: 0,
+        data: [40, 45, 30]
+      }
+    ]
+};
+
+var chDonut2 = document.getElementById("chDonut2");
+
+// donut 3
+var chDonutData3 = {
+    labels: ['EC2', 'S3', 'Lambda'],
+    datasets: [
+      {
+        backgroundColor: colors.slice(0,3),
+        borderWidth: 0,
+        data: [21, 45, 55]
+      }
+    ]
+};
+
+var chDonut3 = document.getElementById("chDonut3");
+
+
+var donuts = {};
+donuts["chDonut1"] = [chDonut1, chDonutData1];
+donuts["chDonut2"] = [chDonut2, chDonutData2];
+donuts["chDonut3"] = [chDonut3, chDonutData3];
+
+for (let key of Object.keys(donuts)) {
+    var inView = donuts[key][2];
+
+        var chDonut = donuts[key][0];
+        var chData = donuts[key][1];
+        if (chDonut) {
+            new Chart(chDonut, {
+                type: 'pie',
+                data: chData,
+                options: donutOptions,
+            });
+        }
+}
+
+</script>
+
